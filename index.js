@@ -6,6 +6,7 @@ const cors = require('cors');
 
 const authRoutes = require("./controllers/authcontroller");
 const userRoutes = require("./controllers/users");
+const loginRoutes = require("./controllers/memberlog");
 
 const postRoutes = require('./routes/posts');
 
@@ -19,6 +20,7 @@ app.use(express.json());
 //route middleware
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/memberlog", loginRoutes);
 
 app.use(postRoutes);
 
