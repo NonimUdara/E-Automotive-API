@@ -8,7 +8,7 @@ const authRoutes = require("./controllers/authcontroller");
 const userRoutes = require("./controllers/users");
 const loginRoutes = require("./controllers/memberlog");
 
-const postRoutes = require('./routes/posts');
+const postRoutes = require('./controllers/posts');
 
 const app = express();
 

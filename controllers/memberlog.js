@@ -25,11 +25,7 @@ router.post("/", async (req, res) => {
 				id: user._id,
 				name: user.name,
 				email: user.email,
-				address: user.address,
-				age: user.age,
-				height: user.height,
-				weight: user.weight,
-				payment_status: user.payment_status
+				phone: user.phone
 			}
 			res.status(200).send({
 				data:

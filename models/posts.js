@@ -10,23 +10,7 @@ const postSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    address:{
-        type:String,
-        required:true
-    },
-    age:{
-        type:String,
-        required:true
-    },
-    height:{
-        type:String,
-        required:true
-    },
-    weight:{
-        type:String,
-        required:true
-    },
-    payment_status:{
+    phone:{
         type:String,
         required:true
     }
