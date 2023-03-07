@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const authRoutes = require("./controllers/authcontroller");
-const userRoutes = require("./controllers/users");
-const loginRoutes = require("./controllers/memberlog");
+const authRoutes = require("./controllers/adminLoginController");
+const userRoutes = require("./controllers/userRegisterController");
+const loginRoutes = require("./controllers/userLoginController");
 
-const postRoutes = require('./controllers/posts');
+const postRoutes = require('./controllers/userController');
 
 const app = express();
 
