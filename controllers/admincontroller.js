@@ -36,5 +36,3 @@ const validate = (data) => {
 };
 
 module.exports = router;
-
-//yuut
