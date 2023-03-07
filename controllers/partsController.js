@@ -1,9 +1,28 @@
 const express = require('express');
-const Posts = require('../models/user');
+const Posts = require('../models/posts');
 
 const router = express.Router();
 
-// get all users
+
+//save part
+
+router.post('/post/save',(req,res)=>{
+
+    let newPost = new Posts(req.body);
+
+    newPost.save((err) =>{
+        if(err){
+            return res.status(400).json({
+                error:err
+            });
+        }
+        return res.status(200).json({
+            success:"Posts saved successfully"
+        });
+    });
+});
+
+// get all parts
 
 router.get('/posts',(req,res) =>{
     Posts.find().exec((err,posts) =>{
@@ -19,7 +38,7 @@ router.get('/posts',(req,res) =>{
     });
 });
 
-//get a specific user
+//get a specific part
 
 router.get("/post/:id",(req,res) =>{
 
@@ -37,7 +56,7 @@ router.get("/post/:id",(req,res) =>{
     });
 });
 
-//update user
+//update part details
 
 router.put('/post/update/:id',(req,res)=>{
     Posts.findByIdAndUpdate(
@@ -57,7 +76,7 @@ router.put('/post/update/:id',(req,res)=>{
     );
 });
 
-//delete user
+//delete part
 
 router.delete('/post/delete/:id',(req,res) =>{
     Posts.findByIdAndRemove(req.params.id).exec((err,deletedPost) =>{
