@@ -10,8 +10,6 @@ const userSchema = new mongoose.Schema({
 	password: { type: String, required: true },
 });
 
-//sasa
-
 userSchema.methods.generateAuthToken = function () {
 	const token = jwt.sign({ _id: this._id }, process.env.JWTPRIVATEKEY, {
 		expiresIn: "7d",
