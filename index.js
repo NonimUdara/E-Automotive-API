@@ -15,7 +15,7 @@ const loginRoutes = require("./controllers/userLoginController");
 const postRoutes = require('./controllers/userController');
 
 const app = express();
-
+//
 //app middleware
 app.use(bodyParser.json());
 app.use(cors());
