@@ -32,8 +32,8 @@ const PORT = 8000;
 const DB_URL = 'mongodb+srv://Udara:udara123@mernapp.ypcrk.mongodb.net/e-automotive?retryWrites=true&w=majority'
 
 mongoose.connect(DB_URL,{
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
 .then(() =>{
     console.log('DB Connected');
