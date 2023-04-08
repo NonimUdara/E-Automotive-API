@@ -1,3 +1,5 @@
+const imageSchema = require('./image');
+
 const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
@@ -13,6 +15,9 @@ const postSchema = new mongoose.Schema({
     phone:{
         type:String,
         required:true
+    },
+    image: {
+        type:imageSchema,
     }
 
 });

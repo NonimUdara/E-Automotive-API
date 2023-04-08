@@ -17,7 +17,7 @@ const postRoutes = require('./controllers/userController');
 const app = express();
 
 //app middleware
-app.use(bodyParser.json());
+app.use(bodyParser.json());//increase the limit
 app.use(cors());
 app.use(express.json());
 

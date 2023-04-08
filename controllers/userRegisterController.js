@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, validate } = require("../models/userAuth");
+const Image = require("../models/image");
 const bcrypt = require("bcrypt");
 
 router.post("/", async (req, res) => {
@@ -16,6 +17,8 @@ router.post("/", async (req, res) => {
 
 		const salt = await bcrypt.genSalt(Number(process.env.SALT));
 		const hashPassword = await bcrypt.hash(req.body.password, salt);
+		console.log("...req.body", req.body);
+		const image = {title: 'Test', image: "kkhbdwckhnkcnwkukhbkcuwbkb"}
 
 		await new User({ ...req.body, password: hashPassword }).save();
 		res.status(201).send({ message: "User created successfully" });
