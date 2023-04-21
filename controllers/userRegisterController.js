@@ -2,6 +2,14 @@ const router = require("express").Router();
 const { User, validate } = require("../models/userAuth");
 const Image = require("../models/image");
 const bcrypt = require("bcrypt");
+const nodeMailer = require('nodemailer');
+
+var email = "";
+
+const html = `
+    
+    <p>nonim </p>
+`;
 
 router.post("/", async (req, res) => {
 	try {
@@ -22,9 +30,35 @@ router.post("/", async (req, res) => {
 
 		await new User({ ...req.body, password: hashPassword }).save();
 		res.status(201).send({ message: "User created successfully" });
-	} catch (error) {
-		res.status(500).send({ message: "Internal Server Error" });
-	}
+
+		email = req.body.email;
+
+		console.log(email);
+
+		const transporter = nodeMailer.createTransport({
+			service:'gmail',
+			auth:{
+				user:'nonimudara234@gmail.com',
+				pass:'mbrzcvaxduurhwrn'
+			}
+		});
+	
+		const info = await transporter.sendMail({
+			from:'nonimudara234@gmail.com',
+			to:email,
+			subject: 'Test Email',
+			html:html,
+		})
+
+		console.log("Message sent: "+info.messageId);
+
+	} 
+	catch(e){
+		console.log(e);
+	};
+	// catch (error) {
+	// 	res.status(500).send({ message: "Internal Server Error" });
+	// }
 });
 
 module.exports = router;
