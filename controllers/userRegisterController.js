@@ -54,12 +54,10 @@ router.post("/", async (req, res) => {
 			html:html,
 		})
 
-		//console.log("Message sent: "+info.messageId);
+		console.log("Message sent: "+info.messageId);
 
 	} 
-	// catch(e){
-	// 	console.log(e);
-	// };
+	
 	catch (e) {
 		res.status(500).send({ message: "Internal Server Error" });
 	}
