@@ -27,12 +27,13 @@ router.post("/", async (req, res) => {
 		res.status(201).send({ message: "User created successfully" });
 
 		var email = "";
-		var name = req.body.email;
+		var name = req.body.name;
 
 		const html = `
-    <h1>Hello World ${name}</h1>
-    <p>nonim </p>
-`;
+		    <h1>Hello ${name}</h1>
+			<h4>Welcome to E-Automotive Family.</h4>
+			<p>Happy buying and selling!</p>
+		`;
 
 		email = req.body.email;
 
