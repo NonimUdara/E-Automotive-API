@@ -4,12 +4,7 @@ const Image = require("../models/image");
 const bcrypt = require("bcrypt");
 const nodeMailer = require('nodemailer');
 
-var email = "";
 
-const html = `
-    
-    <p>nonim </p>
-`;
 
 router.post("/", async (req, res) => {
 	try {
@@ -31,9 +26,17 @@ router.post("/", async (req, res) => {
 		await new User({ ...req.body, password: hashPassword }).save();
 		res.status(201).send({ message: "User created successfully" });
 
+		var email = "";
+		var name = req.body.email;
+
+		const html = `
+    <h1>Hello World ${name}</h1>
+    <p>nonim </p>
+`;
+
 		email = req.body.email;
 
-		console.log(email);
+		//console.log(email);
 
 		const transporter = nodeMailer.createTransport({
 			service:'gmail',
@@ -46,19 +49,19 @@ router.post("/", async (req, res) => {
 		const info = await transporter.sendMail({
 			from:'nonimudara234@gmail.com',
 			to:email,
-			subject: 'Test Email',
+			subject: 'Registration Process Success!',
 			html:html,
 		})
 
-		console.log("Message sent: "+info.messageId);
+		//console.log("Message sent: "+info.messageId);
 
 	} 
-	catch(e){
-		console.log(e);
-	};
-	// catch (error) {
-	// 	res.status(500).send({ message: "Internal Server Error" });
-	// }
+	// catch(e){
+	// 	console.log(e);
+	// };
+	catch (e) {
+		res.status(500).send({ message: "Internal Server Error" });
+	}
 });
 
 module.exports = router;
