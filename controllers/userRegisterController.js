@@ -3,8 +3,7 @@ const { User, validate } = require("../models/userAuth");
 const Image = require("../models/image");
 const bcrypt = require("bcrypt");
 const nodeMailer = require('nodemailer');
-
-
+const { Vonage } = require('@vonage/server-sdk');
 
 router.post("/", async (req, res) => {
 	try {
@@ -21,47 +20,67 @@ router.post("/", async (req, res) => {
 		const salt = await bcrypt.genSalt(Number(process.env.SALT));
 		const hashPassword = await bcrypt.hash(req.body.password, salt);
 		console.log("...req.body", req.body);
-		const image = {title: 'Test', image: "kkhbdwckhnkcnwkukhbkcuwbkb"}
+		const image = { title: 'Test', image: "kkhbdwckhnkcnwkukhbkcuwbkb" }
 
 		await new User({ ...req.body, password: hashPassword }).save();
 		res.status(201).send({ message: "User created successfully" });
 
 		var email = "";
-		var name = req.body.name;
+		var phone = "";
+		var name = "";
 
-		const html = `
-		    <h1>Hello ${name}</h1>
+		const html =
+			`<h1>Hello ${name}</h1>
 			<h4>Welcome to E-Automotive Family.</h4>
-			<p>Happy buying and selling!</p>
-		`;
+			<p>Happy buying and selling!</p>`
+			;
 
 		email = req.body.email;
+		phone = req.body.phone;
+		name = req.body.name;
 
 		//console.log(email);
 
 		const transporter = nodeMailer.createTransport({
-			service:'gmail',
-			auth:{
-				user:'nonimudara234@gmail.com',
-				pass:'mbrzcvaxduurhwrn'
+			service: 'gmail',
+			auth: {
+				user: 'nonimudara234@gmail.com',
+				pass: 'mbrzcvaxduurhwrn'
 			}
 		});
-	
+
 		const info = await transporter.sendMail({
-			from:'nonimudara234@gmail.com',
-			to:email,
+			from: 'nonimudara234@gmail.com',
+			to: email,
 			subject: 'Registration Process Success!',
-			html:html,
+			html: html,
 		})
 
-		console.log("Message sent: "+info.messageId);
+		//console.log("Message sent: "+info.messageId);
 
-	} 
-	
+		// const vonage = new Vonage({
+		// 	apiKey: "7e28509e",
+		// 	apiSecret: "Kb1tfUEgccX1CPQe"
+		// });
+
+		// const from = "E-Automotive";
+		// const to = '94'+phone+'';
+		// const text = 'Hello \n\n\n\n';
+
+		// async function sendSMS() {
+		// 	await vonage.sms.send({ to, from, text })
+		// 		.then(resp => { console.log('Message sent successfully'); console.log(resp); })
+		// 		.catch(err => { console.log('There was an error sending the messages.'); console.error(err); });
+		// }
+
+		// sendSMS();
+
+	}
+
 	catch (e) {
 		res.status(500).send({ message: "Internal Server Error" });
 	}
-	
+
 });
 
 module.exports = router;
