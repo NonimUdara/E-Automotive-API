@@ -25,19 +25,15 @@ router.post("/", async (req, res) => {
 		await new User({ ...req.body, password: hashPassword }).save();
 		res.status(201).send({ message: "User created successfully" });
 
-		var email = "";
-		var phone = "";
-		var name = "";
+		var email = req.body.email;
+		var phone = req.body.phone;
+		var name = req.body.name;
 
 		const html =
-			`<h1>Hello ${name}</h1>
+			`<h1>Hello ${name}.</h1>
 			<h4>Welcome to E-Automotive Family.</h4>
 			<p>Happy buying and selling!</p>`
 			;
-
-		email = req.body.email;
-		phone = req.body.phone;
-		name = req.body.name;
 
 		//console.log(email);
 
