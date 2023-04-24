@@ -52,7 +52,7 @@ router.post("/", async (req, res) => {
 			html: html,
 		})
 
-		console.log("Message sent: " + info.messageId);
+		//console.log("Message sent: " + info.messageId);
 
 		const vonage = new Vonage({
 			apiKey: '08fa6d15',
