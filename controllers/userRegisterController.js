@@ -55,25 +55,17 @@ router.post("/", async (req, res) => {
 		//console.log("Message sent: " + info.messageId);
 
 		const vonage = new Vonage({
-			apiKey: '08fa6d15',
-			apiSecret: 'jMD3DqJvz6t7kx9u'
+			apiKey: '7f0cebc6',
+			apiSecret: 'CwNHjwwV5iLnF4f7'
 		});
 
 		const from = "E-Automotive";
 		const to = '94' + phone + '';
-		const text = 'Hello \n\n\n\n';
+		const text = 
+		'Hello '+name+'.\n Welcome to E-Automotive Family.\n Happy buying and selling!\n\n\n\n'
+		;
 
 		const pmessage = await vonage.sms.send({ to, from, text })
-        
-		//console.log('Message sent successfully'); console.log(info.resp)
-
-		// async function sendSMS() {
-		// 	await vonage.sms.send({ to, from, text })
-		// 		.then(resp => { console.log('Message sent successfully'); console.log(resp); })
-		// 		.catch(err => { console.log('There was an error sending the messages.'); console.error(err); });
-		// }
-
-		// sendSMS();
 
 	}
 
