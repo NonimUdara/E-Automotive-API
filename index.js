@@ -12,7 +12,7 @@ const authRoutes = require("./controllers/adminLoginController");
 const userRoutes = require("./controllers/userRegisterController");
 const loginRoutes = require("./controllers/userLoginController");
 
-const postRoutes = require('./controllers/userController');
+//const postRoutes = require('./controllers/userController');
 
 const app = express();
 
