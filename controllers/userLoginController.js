@@ -10,6 +10,7 @@ router.post("/", async (req, res) => {
 			return res.status(400).send({ message: error.details[0].message });
 
 		const user = await User.findOne({ email: req.body.email });
+		console.log("user", user);
 		if (!user)
 			return res.status(401).send({ message: "Invalid Email" });
 
@@ -25,7 +26,8 @@ router.post("/", async (req, res) => {
 				id: user._id,
 				name: user.name,
 				email: user.email,
-				phone: user.phone
+				phone: user.phone,
+				image: user.image.image
 			}
 			res.status(200).send({
 				data:

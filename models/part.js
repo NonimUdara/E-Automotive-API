@@ -4,28 +4,29 @@ const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
 
+    image: {
+        type:imageSchema,
+    },
     name:{
         type:String,
         required:true
     },
-    email:{
+    model:{
         type:String,
         required:true
     },
-    phone:{
+    price:{
         type:String,
         required:true
     },
-    image: {
-        type:imageSchema,
+    condition: {
+        type:String,
+        required:true
     },
-    address: {
-        type:String
-    },
-    postalcode: {
-        type:String
-    },
-    
+    type: {
+        type: String,
+        required:true
+    }
 });
 
-module.exports = mongoose.model('Members',postSchema);
+module.exports = mongoose.model('Parts',postSchema);

@@ -9,10 +9,11 @@ dotenv.config();
 mongoose.set('strictQuery', false);
 
 const authRoutes = require("./controllers/adminLoginController");
-const userRoutes = require("./controllers/userRegisterController");
+const userAuthRoutes = require("./controllers/userRegisterController");
 const loginRoutes = require("./controllers/userLoginController");
 
-const postRoutes = require('./controllers/userController');
+const userRoutes = require('./controllers/userController');
+const partsRoutes = require('./controllers/partsController');
 
 const app = express();
 
@@ -23,10 +24,11 @@ app.use(express.json());
 
 //route middleware
 app.use("/api/auth", authRoutes);
-app.use("/api/users", userRoutes);
+app.use("/api/users", userAuthRoutes);
 app.use("/api/memberlog", loginRoutes);
 
-app.use(postRoutes);
+app.use(userRoutes);
+app.use(partsRoutes);
 
 const PORT = 8000;
 const DB_URL = 'mongodb+srv://Udara:udara123@mernapp.ypcrk.mongodb.net/e-automotive?retryWrites=true&w=majority'

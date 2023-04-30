@@ -5,7 +5,7 @@ const router = express.Router();
 
 // get all users
 
-router.get('/posts',(req,res) =>{
+router.get('/users',(req,res) =>{
     Posts.find().exec((err,posts) =>{
         if(err){
             return res.status(400).json({
@@ -39,7 +39,7 @@ router.get("/post/:id",(req,res) =>{
 
 //update user
 
-router.put('/post/update/:id',(req,res)=>{
+router.put('/user/update/:id',(req,res)=>{
     Posts.findByIdAndUpdate(
         req.params.id,
         {

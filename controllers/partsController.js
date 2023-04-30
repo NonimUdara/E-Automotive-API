@@ -1,12 +1,11 @@
 const express = require('express');
-const Posts = require('../models/posts');
+const Posts = require('../models/part');
 
 const router = express.Router();
 
-
 //save part
 
-router.post('/post/save',(req,res)=>{
+router.post('/part/save',(req,res)=>{
 
     let newPost = new Posts(req.body);
 
@@ -24,7 +23,7 @@ router.post('/post/save',(req,res)=>{
 
 // get all parts
 
-router.get('/posts',(req,res) =>{
+router.get('/parts',(req,res) =>{
     Posts.find().exec((err,posts) =>{
         if(err){
             return res.status(400).json({
@@ -40,7 +39,7 @@ router.get('/posts',(req,res) =>{
 
 //get a specific part
 
-router.get("/post/:id",(req,res) =>{
+router.get("/part/:id",(req,res) =>{
 
     let postId = req.params.id;
 
@@ -58,7 +57,7 @@ router.get("/post/:id",(req,res) =>{
 
 //update part details
 
-router.put('/post/update/:id',(req,res)=>{
+router.put('/part/update/:id',(req,res)=>{
     Posts.findByIdAndUpdate(
         req.params.id,
         {
@@ -78,7 +77,7 @@ router.put('/post/update/:id',(req,res)=>{
 
 //delete part
 
-router.delete('/post/delete/:id',(req,res) =>{
+router.delete('/part/delete/:id',(req,res) =>{
     Posts.findByIdAndRemove(req.params.id).exec((err,deletedPost) =>{
         
         if(err) return res.status(400).json({
