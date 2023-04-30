@@ -17,7 +17,8 @@ const postSchema = new mongoose.Schema({
         required:true
     },
     image: {
-        type:imageSchema,
+        type:String,
+        required:true
     },
     address: {
         type:String

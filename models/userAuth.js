@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
 	email: { type: String, required: true },
 	phone: { type: String, required: true },
 	password: { type: String, required: true },
-	image: { type: imageSchema }
+	image: { type: String, required: true }
 });
 
 userSchema.methods.generateAuthToken = function () {

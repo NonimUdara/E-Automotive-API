@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
 				name: user.name,
 				email: user.email,
 				phone: user.phone,
-				image: user.image.image
+				image: user.image
 			}
 			res.status(200).send({
 				data:
