@@ -21,7 +21,7 @@ router.get('/users',(req,res) =>{
 
 //get a specific user
 
-router.get("/post/:id",(req,res) =>{
+router.get("/user/:id",(req,res) =>{
 
     let postId = req.params.id;
 

@@ -26,6 +26,9 @@ const postSchema = new mongoose.Schema({
     type: {
         type: String,
         required:true
+    },
+    ownerId: {
+        type: String,
     }
 });
 
