@@ -20,9 +20,8 @@ router.post("/", async (req, res) => {
 		const salt = await bcrypt.genSalt(Number(process.env.SALT));
 		const hashPassword = await bcrypt.hash(req.body.password, salt);
 		console.log("...req.body", req.body);
-		const image = { title: 'Test', image: "kkhbdwckhnkcnwkukhbkcuwbkb" }
 
-		await new User({ ...req.body, password: hashPassword }).save();
+		await new User({ ...req.body, password: hashPassword, hasCart: false }).save();
 		res.status(201).send({ message: "User created successfully" });
 
 		var email = req.body.email;

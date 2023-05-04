@@ -1,11 +1,11 @@
 const express = require('express');
-const Posts = require('../models/posts');
+const Posts = require('../models/garage');
 
 const router = express.Router();
 
-//save location
+//save part
 
-router.post('/post/save',(req,res)=>{
+router.post('/garage/save',(req,res)=>{
 
     let newPost = new Posts(req.body);
 
@@ -21,9 +21,9 @@ router.post('/post/save',(req,res)=>{
     });
 });
 
-// get all locations
+// get all users
 
-router.get('/posts',(req,res) =>{
+router.get('/garages',(req,res) =>{
     Posts.find().exec((err,posts) =>{
         if(err){
             return res.status(400).json({
@@ -37,9 +37,9 @@ router.get('/posts',(req,res) =>{
     });
 });
 
-//get a specific location
+//get a specific user
 
-router.get("/post/:id",(req,res) =>{
+router.get("/garage/:id",(req,res) =>{
 
     let postId = req.params.id;
 
@@ -55,9 +55,9 @@ router.get("/post/:id",(req,res) =>{
     });
 });
 
-//update locations
+//update user
 
-router.put('/post/update/:id',(req,res)=>{
+router.put('/garage/update/:id',(req,res)=>{
     Posts.findByIdAndUpdate(
         req.params.id,
         {
@@ -75,9 +75,9 @@ router.put('/post/update/:id',(req,res)=>{
     );
 });
 
-//delete location
+//delete user
 
-router.delete('/post/delete/:id',(req,res) =>{
+router.delete('/garage/delete/:id',(req,res) =>{
     Posts.findByIdAndRemove(req.params.id).exec((err,deletedPost) =>{
         
         if(err) return res.status(400).json({

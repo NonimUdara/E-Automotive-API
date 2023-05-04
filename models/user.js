@@ -26,6 +26,9 @@ const postSchema = new mongoose.Schema({
     postalcode: {
         type:String
     },
+    hasCart: {
+        type:Boolean
+    },
     
 });
 
