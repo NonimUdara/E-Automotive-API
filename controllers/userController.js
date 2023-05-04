@@ -59,7 +59,7 @@ router.put('/user/update/:id',(req,res)=>{
 
 //delete user
 
-router.delete('/post/delete/:id',(req,res) =>{
+router.delete('/user/delete/:id',(req,res) =>{
     Posts.findByIdAndRemove(req.params.id).exec((err,deletedPost) =>{
         
         if(err) return res.status(400).json({

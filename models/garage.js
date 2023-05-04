@@ -4,11 +4,11 @@ const postSchema = new mongoose.Schema({
 
     image1: {
         type:String,
-        required:true
+
     },
     image2: {
         type:String,
-        required:true
+
     },
     name:{
         type:String,
@@ -22,7 +22,7 @@ const postSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    phone: {
+    number: {
         type:String,
         required:true
     },
@@ -36,7 +36,7 @@ const postSchema = new mongoose.Schema({
     },
     access: {
         type: String,
-        required:true
+
     },
 });
 
