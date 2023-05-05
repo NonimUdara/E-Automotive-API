@@ -21,8 +21,12 @@ router.post("/", async (req, res) => {
 		const hashPassword = await bcrypt.hash(req.body.password, salt);
 		console.log("...req.body", req.body);
 
-		await new User({ ...req.body, password: hashPassword, hasCart: false }).save();
-		res.status(201).send({ message: "User created successfully" });
+		const userCreatioRes = await new User({ ...req.body, password: hashPassword, hasCart: false }).save();
+		console.log("userCreatioRes: ", userCreatioRes);
+		res.status(201).send({ 
+			userData: userCreatioRes,
+			message: "User created successfully" 
+		});
 
 		var email = req.body.email;
 		var phone = req.body.phone;
