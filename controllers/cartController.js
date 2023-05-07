@@ -58,9 +58,9 @@ router.get("/cart/:userId",(req,res) =>{
 
 //update part details
 
-router.put('/cart/update/:id',(req,res)=>{
+router.put('/cart/update/:userId',(req,res)=>{
     Posts.findByIdAndUpdate(
-        req.params.id,
+        req.params.userId,
         {
             $set:req.body
         },
