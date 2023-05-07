@@ -40,9 +40,9 @@ router.get('/cart',(req,res) =>{
 
 //get a specific part
 
-router.get("/cart/:id",(req,res) =>{
+router.get("/cart/:userId",(req,res) =>{
 
-    let postId = req.params.id;
+    let postId = req.params.userId;
 
     Posts.findById(postId,(err,post) =>{
         if(err){
