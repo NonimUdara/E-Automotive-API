@@ -41,8 +41,9 @@ router.get('/cart',(req,res) =>{
 //get a specific part
 
 router.get("/cart/:userId",(req,res) =>{
-
+    console.log("postId dddddddd");
     let postId = req.params.userId;
+    console.log("postId", postId);
 
     Posts.findById(postId,(err,post) =>{
         if(err){
@@ -51,7 +52,7 @@ router.get("/cart/:userId",(req,res) =>{
 
         return res.status(200).json({
             success:true,
-            post
+            post: post
         });
     });
 });

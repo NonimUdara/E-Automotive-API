@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
 		} else {
 			const token = user.generateAuthToken();
 			const userDataRes = {
-				id: user._id,
+				userId: user._id,
 				name: user.name,
 				email: user.email,
 				phone: user.phone,
