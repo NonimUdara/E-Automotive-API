@@ -36,7 +36,9 @@ const postSchema = new mongoose.Schema({
     },
     access: {
         type: String,
-
+    },
+    email: {
+        type: String,
     },
 });
 
