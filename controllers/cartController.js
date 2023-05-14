@@ -3,7 +3,7 @@ const Posts = require('../models/cart');
 
 const router = express.Router();
 
-//save part
+//save cart
 
 router.post('/cart/save',(req,res)=>{
 
@@ -22,7 +22,7 @@ router.post('/cart/save',(req,res)=>{
     });
 });
 
-// get all parts
+// get all cart items
 
 router.get('/cart',(req,res) =>{
     Posts.find().exec((err,posts) =>{
@@ -38,7 +38,7 @@ router.get('/cart',(req,res) =>{
     });
 });
 
-//get a specific part
+//get a specific cart details
 
 router.get("/cart/:userId",(req,res) =>{
     console.log("postId dddddddd");
@@ -57,9 +57,10 @@ router.get("/cart/:userId",(req,res) =>{
     });
 });
 
-//update part details
+//update cart details
 
 router.put('/cart/update/:userId',(req,res)=>{
+    console.log("Request : ", req);
     Posts.findByIdAndUpdate(
         req.params.userId,
         {
@@ -77,7 +78,7 @@ router.put('/cart/update/:userId',(req,res)=>{
     );
 });
 
-//delete part
+//delete cart
 
 router.delete('/cart/delete/:id',(req,res) =>{
     Posts.findByIdAndRemove(req.params.id).exec((err,deletedPost) =>{
