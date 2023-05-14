@@ -18,6 +18,7 @@ const cartRoutes = require('./controllers/cartController');
 const paymentRoutes = require('./controllers/paymentController');
 const garageRoutes = require('./controllers/garageController');
 const checkoutRoutes = require('./controllers/checkoutController');
+const contactUsRoutes = require('./controllers/contactUsController');
 
 const app = express();
 
@@ -37,6 +38,7 @@ app.use(cartRoutes);
 app.use(paymentRoutes);
 app.use(garageRoutes);
 app.use(checkoutRoutes);
+app.use(contactUsRoutes);
 
 const PORT = 8000;
 const DB_URL = 'mongodb+srv://Udara:udara123@mernapp.ypcrk.mongodb.net/e-automotive?retryWrites=true&w=majority'
