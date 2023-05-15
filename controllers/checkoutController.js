@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/payment/save',(req,res)=>{
 
     let newPost = new Posts(req.body);
-
+    console.log("Checkout Save: ", req.body);
     newPost.save((err) =>{
         if(err){
             return res.status(400).json({

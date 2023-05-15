@@ -10,6 +10,16 @@ router.post("/", async (req, res) => {
 			return res.status(400).send({ message: error.details[0].message });
 
 		const user = await User.findOne({ email: req.body.email });
+		const userDataRes = {
+			userId: user._id,
+			name: user.name,
+			email: user.email,
+			phone: user.phone,
+			image: user.image,
+			address: user.address || null,
+			postalcode: user.postalcode || null,
+			hasCart: user.hasCart
+		}
 		console.log("user", user);
 		if (!user)
 			return res.status(401).send({ message: "Invalid Email" });
@@ -22,14 +32,9 @@ router.post("/", async (req, res) => {
 			return res.status(401).send({ message: "Password is incorrect" });
 		} else {
 			const token = user.generateAuthToken();
-			const userDataRes = {
-				userId: user._id,
-				name: user.name,
-				email: user.email,
-				phone: user.phone,
-				image: user.image,
-				hasCart: user.hasCart
-			}
+			console.log("user address", user.address);
+			
+			console.log("userDataRes :", userDataRes);
 			res.status(200).send({
 				data:
 				{
