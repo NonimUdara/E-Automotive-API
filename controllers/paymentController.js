@@ -10,11 +10,14 @@ const stripe = Stripe(SECRET_KEY, { apiVersion: "2020-08-27" });
 
 app.post("/create-payment-intent", async (req, res) => {
   console.log(req.email)
+  console.log("req:" , req);
+  console.log("req body:" , req.body);
   try {
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: 1099, //lowest denomination of particular currency
+      amount: req.body.amount*100, //lowest denomination of particular currency
       currency: "usd",
       payment_method_types: ["card"], //by default
+      receipt_email: req.body.email,
     });
 
     const clientSecret = paymentIntent.client_secret;
