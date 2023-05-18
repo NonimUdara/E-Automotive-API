@@ -9,9 +9,9 @@ const SECRET_KEY = "sk_test_51N1DBBIcQPaMmd0K4rV3tebawAORe1YPUJZYpF2myAdLuKECLSG
 const stripe = Stripe(SECRET_KEY, { apiVersion: "2020-08-27" });
 
 app.post("/create-payment-intent", async (req, res) => {
-  console.log(req.email)
-  console.log("req:" , req);
-  console.log("req body:" , req.body);
+  //console.log(req.email)
+  //console.log("req:" , req);
+  //console.log("req body:" , req.body);
   try {
     const paymentIntent = await stripe.paymentIntents.create({
       amount: req.body.amount*100, //lowest denomination of particular currency

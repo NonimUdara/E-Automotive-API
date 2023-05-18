@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
 			postalcode: user.postalcode || null,
 			hasCart: user.hasCart
 		}
-		console.log("user", user);
+		//console.log("user", user);
 		if (!user)
 			return res.status(401).send({ message: "Invalid Email" });
 
@@ -32,9 +32,9 @@ router.post("/", async (req, res) => {
 			return res.status(401).send({ message: "Password is incorrect" });
 		} else {
 			const token = user.generateAuthToken();
-			console.log("user address", user.address);
+			//console.log("user address", user.address);
 			
-			console.log("userDataRes :", userDataRes);
+			//console.log("userDataRes :", userDataRes);
 			res.status(200).send({
 				data:
 				{
