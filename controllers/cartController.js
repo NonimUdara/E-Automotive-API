@@ -9,7 +9,7 @@ router.post('/cart/save',(req,res)=>{
 
     let newPost = new Posts(req.body);
 
-    console.log("req",req.body);
+    //console.log("req",req.body);
     newPost.save((err) =>{
         if(err){
             return res.status(400).json({
