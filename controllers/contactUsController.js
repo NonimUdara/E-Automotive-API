@@ -2,7 +2,7 @@ const express = require('express');
 const Posts = require('../models/contactUs');
 const router = express.Router();
 
-//save part
+//save contactus message
 
 router.post('/contactus/save', (req, res) => {
     let newPost = new Posts(req.body);
@@ -14,12 +14,12 @@ router.post('/contactus/save', (req, res) => {
             });
         }
         return res.status(200).json({
-            success: "Posts saved successfully"
+            success: "Contactus Message saved successfully"
         });
     });
 });
 
-// get all users
+// get all contactus messages
 
 router.get('/contactus', (req, res) => {
     Posts.find().exec((err, posts) => {

@@ -3,7 +3,7 @@ const Posts = require('../models/garage');
 const router = express.Router();
 const nodeMailer = require('nodemailer');
 
-//save part
+//save garage
 
 router.post('/garage/save', (req, res) => {
 
@@ -16,12 +16,12 @@ router.post('/garage/save', (req, res) => {
             });
         }
         return res.status(200).json({
-            success: "Posts saved successfully"
+            success: "Garage saved successfully"
         });
     });
 });
 
-// get all users
+// get all garages
 
 router.get('/garages', (req, res) => {
     Posts.find().exec((err, posts) => {
@@ -37,7 +37,7 @@ router.get('/garages', (req, res) => {
     });
 });
 
-//get a specific user
+//get a specific garage
 
 router.get("/garage/:id", (req, res) => {
 
@@ -55,7 +55,7 @@ router.get("/garage/:id", (req, res) => {
     });
 });
 
-//update user
+//update garage access true
 
 router.put('/garage/updateAT/:id', (req, res) => {
     console.log(req.body.email);
@@ -100,7 +100,7 @@ router.put('/garage/updateAT/:id', (req, res) => {
     );
 });
 
-//update user
+//update garage access false
 
 router.put('/garage/updateAF/:id', (req, res) => {
     console.log(req.body.email);
@@ -146,7 +146,7 @@ router.put('/garage/updateAF/:id', (req, res) => {
     );
 });
 
-//update user
+//update garage
 
 router.put('/garage/update/:id', (req, res) => {
     //console.log(req.body.email);
@@ -168,7 +168,7 @@ router.put('/garage/update/:id', (req, res) => {
     );
 });
 
-//delete user
+//delete garage
 
 router.delete('/garage/delete/:id', (req, res) => {
     Posts.findByIdAndRemove(req.params.id).exec((err, deletedPost) => {
