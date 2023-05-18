@@ -57,18 +57,18 @@ router.post("/", async (req, res) => {
 
 		//console.log("Message sent: " + info.messageId);
 
-		const vonage = new Vonage({
-			apiKey: 'ebc907db',
-			apiSecret: 'vdck8lUqvKxqoKso'
-		});
+		// const vonage = new Vonage({
+		// 	apiKey: 'ebc907db',
+		// 	apiSecret: 'vdck8lUqvKxqoKso'
+		// });
 
-		const from = "E-Automotive";
-		const to = '94' + phone + '';
-		const text = 
-		'Hello '+name+'.\nWelcome to E-Automotive Family.\nHappy buying and selling!\n\n\n\n'
-		;
+		// const from = "E-Automotive";
+		// const to = '94' + phone + '';
+		// const text = 
+		// 'Hello '+name+'.\nWelcome to E-Automotive Family.\nHappy buying and selling!\n\n\n\n'
+		// ;
 
-		const pmessage = await vonage.sms.send({ to, from, text })
+		// const pmessage = await vonage.sms.send({ to, from, text })
 
 	}
 
