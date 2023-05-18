@@ -22,10 +22,14 @@ const contactUsRoutes = require('./controllers/contactUsController');
 
 const app = express();
 
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
+
 //app middleware
 app.use(bodyParser.json());//increase the limit
 app.use(cors());
 app.use(express.json());
+
 
 //route middleware
 app.use("/api/auth", authRoutes);

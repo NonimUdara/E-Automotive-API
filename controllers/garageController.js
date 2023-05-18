@@ -32,7 +32,7 @@ router.get('/garages', (req, res) => {
         }
         return res.status(200).json({
             success: true,
-            existingPosts: posts
+            existingGarages: posts
         });
     });
 });
