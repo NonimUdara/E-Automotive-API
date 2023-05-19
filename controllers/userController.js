@@ -40,9 +40,8 @@ router.get("/user/:id",(req,res) =>{
 //update user
 
 router.put('/user/update/:id',(req,res)=>{
-    console.log("/user/update/:id :", req.body);
-
-    console.log("req.params.id, :", req.params.id,);
+    //console.log("/user/update/:id :", req.body);
+    //console.log("req.params.id, :", req.params.id,);
     Posts.findByIdAndUpdate(
         req.params.id,
         {

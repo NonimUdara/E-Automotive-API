@@ -6,7 +6,7 @@ const router = express.Router();
 //save part
 
 router.post('/part/save',(req,res)=>{
-
+    //console.log(req.body);
     let newPost = new Posts(req.body);
 
     newPost.save((err) =>{

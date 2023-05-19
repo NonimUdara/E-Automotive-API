@@ -15,6 +15,7 @@ app.post("/create-payment-intent", async (req, res) => {
   try {
     const paymentIntent = await stripe.paymentIntents.create({
       amount: Math.round((req.body.amount*100)/330), //lowest denomination of particular currency
+      // amount: 100, 
       currency: "usd",
       payment_method_types: ["card"], //by default
       receipt_email: req.body.email,
@@ -26,7 +27,7 @@ app.post("/create-payment-intent", async (req, res) => {
       clientSecret: clientSecret,
     });
   } catch (e) {
-    console.log(e.message);
+    console.log('Payment error',e.message);
     res.json({ error: e.message });
   }
 });
