@@ -1,3 +1,4 @@
+const moment = require('moment-timezone');
 const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
@@ -28,6 +29,10 @@ const postSchema = new mongoose.Schema({
     card: {
         type:String
     },
+    createdAt: {
+        type: Date,
+        default: () => moment().tz('Asia/Colombo').format('YYYY-MM-DD HH:mm:ss')
+   }
     
 });
 
