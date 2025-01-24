@@ -13,7 +13,7 @@ const SECRET_KEY = "sk_test_51QiFa22NxTyhzQ4x6midlw9kKQpk9F4aRa3T9B1ERaHAf8TfV3m
 
 //Confirm the API version from your stripe dashboard
 const stripe = Stripe(SECRET_KEY, { apiVersion: "2020-08-27" });
-//comment
+
 app.post("/create-payment-intent", async (req, res) => {
   //console.log(req.email)
   //console.log("req:" , req);
